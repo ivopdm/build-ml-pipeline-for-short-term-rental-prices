@@ -26,14 +26,16 @@ def go(args):
     df_rental_nyc = pd.read_csv(artifact_local_path)
 
 
-    ######################
-    # YOUR CODE HERE     #
-    ######################
     # Drop Outliers
     idx = df_rental_nyc['price'].between(args.min_price, args.max_price)
     df_rental_nyc = df_rental_nyc[idx].copy()
     # Covert last_review to datetime
     df_rental_nyc['last_review'] = pd.to_datetime(df_rental_nyc['last_review'])
+
+    # Crop to proper longitude and latitude boundaries for properties in and around NYC
+    idx = df_rental_nyc['longitude'].between(-74.25, -73.50) & df_rental_nyc['latitude'].between(40.5, 41.2)
+    df_rental_nyc = df_rental_nyc[idx].copy()
+
 
     df_rental_nyc.to_csv(path_or_buf="clean_sample.csv", index=False)
     artifact = wandb.Artifact(
