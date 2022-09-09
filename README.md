@@ -4,6 +4,11 @@ time on various rental platforms. You need to estimate the typical price for a g
 on the price of similar properties. Your company receives new data in bulk every week. The model needs 
 to be retrained with the same cadence, necessitating an end-to-end pipeline that can be reused.
 
+# Note to reviewers
+- Please find W&B project here: https://wandb.ai/ivopdm/nyc_airbnb and;
+- Please find github project here:https://github.com/ivopdm/build-ml-pipeline-for-short-term-rental-prices
+
+
 In this project you will build such a pipeline.
 
 ## Table of contents
